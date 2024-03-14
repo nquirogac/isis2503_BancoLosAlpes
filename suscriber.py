@@ -9,7 +9,7 @@ from config.config import RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD
 rabbit_host = RABBIT_HOST
 rabbit_user = RABBIT_USER
 rabbit_password = RABBIT_PASSWORD
-exchange = 'monitoring_measurements'
+exchange = 'BancoLosAlpes_solicitudes_credito'
 topics = ['solicitud_credito']
 
 connection = pika.BlockingConnection(
