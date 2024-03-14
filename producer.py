@@ -2,10 +2,12 @@
 import time
 import pika
 from random import choice
+from os import environ
+from config.config import RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD
 
-rabbit_host = '10.128.0.2'
-rabbit_user = 'monitoring_user'
-rabbit_password = 'isis2503'
+rabbit_host = RABBIT_HOST
+rabbit_user = RABBIT_USER
+rabbit_password = RABBIT_PASSWORD
 exchange = 'BancoLosAlpes_solicitudes_credito'
 topic = 'solicitud_credito'
 
