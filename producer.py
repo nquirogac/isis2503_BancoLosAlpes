@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import time
 import pika
+import json
+
 from random import choice, randint
 from datetime import datetime
 from os import environ
