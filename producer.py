@@ -3,7 +3,7 @@ import time
 import pika
 from random import choice
 
-rabbit_host = 'host'
+rabbit_host = '10.128.0.2'
 rabbit_user = 'monitoring_user'
 rabbit_password = 'isis2503'
 exchange = 'BancoLosAlpes_solicitudes_credito'
