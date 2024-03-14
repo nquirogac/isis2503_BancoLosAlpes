@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import time
 import pika
-from random import choice
+from random import choice, randint
 from os import environ
 from config.config import RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD
 
