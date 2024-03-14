@@ -2,6 +2,7 @@
 import time
 import pika
 from random import choice, randint
+from datetime import datetime
 from os import environ
 from config.config import RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD
 
