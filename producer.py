@@ -22,10 +22,12 @@ print('> Sending solicitude. To exit press CTRL+C')
 while True:
     operation = choice(['creacion', 'modificacion', 'eliminacion'])
     userId = randint(10000, 99999)
-    payload = {'operation': operation, 'userId': userId} # JSON
+    timestamp = datetime.now().isoformat() 
+    payload = {'operation': operation, 'userId': userId, 'timestamp': timestamp} # JSON
+    message_body = json.dumps(payload)  # Convertir el diccionario a JSON
     channel.basic_publish(exchange=exchange,
-                          routing_key=topic, body=payload)
-    print("Request: %r by: %r" % (operation, userId))
+                          routing_key=topic, body=message_body)
+    print("Request: %r by: %r at: %s" % (operation, userId, timestamp))
     time.sleep(8)
 
 connection.close()
