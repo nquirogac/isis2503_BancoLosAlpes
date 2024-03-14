@@ -24,6 +24,6 @@ while True:
     channel.basic_publish(exchange=exchange,
                           routing_key=topic, body=payload)
     print("Request: %r by: %r" % (operation, userId))
-    time.sleep(10)
+    time.sleep(8)
 
 connection.close()
