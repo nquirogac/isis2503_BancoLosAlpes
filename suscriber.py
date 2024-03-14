@@ -1,14 +1,14 @@
 # This module is responsible for consuming the messages from the broker
 import json
 import pika
-from sys import path
 from os import environ
+from config.config import RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD
 
 
 #Define the connection parameters to the broker message
-rabbit_host = 'host'
-rabbit_user = 'monitoring_user'
-rabbit_password = 'isis2503'
+rabbit_host = RABBIT_HOST
+rabbit_user = RABBIT_USER
+rabbit_password = RABBIT_PASSWORD
 exchange = 'monitoring_measurements'
 topics = ['solicitud_credito']
 
@@ -25,14 +25,14 @@ for topic in topics:
     channel.queue_bind(
         exchange=exchange, queue=queue_name, routing_key=topic)
 
-print('> Waiting measurements. To exit press CTRL+C')
+print('> Waiting logs. To exit press CTRL+C')
 
 
 def callback(ch, method, properties, body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
 #    create_measurement_object(
 #        variable, payload['value'], payload['unit'], topic[0] + topic[1])
-    print("Measurement :%r" % (str(payload)))
+    print("Payload :%r" % (str(payload)))
 
 
 channel.basic_consume(
