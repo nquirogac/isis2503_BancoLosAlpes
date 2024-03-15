@@ -7,7 +7,7 @@ import django
 from pymongo import MongoClient, errors
 
 # Configuraciones de conexión a MongoDB
-MONGO_CONN_STRING = 'mongodb+srv://TomasR:20220722@prueba1.00rxmli.mongodb.net/'
+MONGO_CONN_STRING = 'mongodb+srv://TomasR:20220722@prueba1.00rxmli.mongodb.net/&ssl=true'
 MONGO_DB_NAME = 'AWS'
 MONGO_COLLECTION_NAME = 'solicitudesLogs'
 
