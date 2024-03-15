@@ -1,6 +1,6 @@
 from usuarios.models import Usuario
 def getUsuarios():
-    queryset = Usuario.objects.all().order_by('name')
+    queryset = Usuario.objects.all().order_by('document')
     return(queryset)
 
 def createUsuario(formUsuario):

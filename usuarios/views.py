@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import usuarioForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .logic.logic_usuarios import getUsuarios, getUsuarioByDocument, createUsuario
+from .logic.logic_usuarios import getUsuarios, createUsuario
 
 def usuariosList(request):
     listaUser = getUsuarios()
