@@ -61,7 +61,7 @@ def callback(ch, method, properties, body):
         payload = json.loads(body.decode('utf8').replace("'", '"'))
         print('Fecha de Creación: ' + str(payload['creationDate']) +
               ', Estado: ' + str(payload['status']) + ', Documento Cliente: ' + str(payload['user_id']))
-        id = randint(-9223372036854775807, 9223372036854775807)
+        id = randint(1, 999999999)
         log = {
             '_id': id,
             "user_id": payload['user_id'],

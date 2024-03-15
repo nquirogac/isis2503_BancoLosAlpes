@@ -21,7 +21,7 @@ print(' [*] Waiting for logs. To exit press CTRL+C')
 while True:
     for topic in topics:
         status = choice(['Aprobado', 'Rechazado','Pendiente'])
-        user_id = randint(-9223372036854775807, 9223372036854775807)
+        user_id = randint(-9999999, 99999999)
         creationDate = datetime.now().isoformat()
         payload = {'user_id': user_id, 'status': status, 'creationDate': creationDate, 'topic': topic}
         message = json.dumps(payload)
