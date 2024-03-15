@@ -57,17 +57,17 @@ except pika.exceptions.AMQPError as e:
     exit()
 
 def callback(ch, method, properties, body):
-    try:
-        payload = json.loads(body.decode('utf8').replace("'", '"'))
-        print('Fecha de Creación: ' + str(payload['creationDate']) +
+    payload = json.loads(body.decode('utf8').replace("'", '"'))
+    print('Fecha de Creación: ' + str(payload['creationDate']) +
               ', Estado: ' + str(payload['status']) + ', Documento Cliente: ' + str(payload['user_id']))
-        id = randint(1, 999999999)
-        log = {
+    id = randint(1, 999999999)
+    log = {
             '_id': id,
             "user_id": payload['user_id'],
             "creationDate": payload['creationDate'],
             "status": payload['status']
         }
+    try:
         collection.insert_one(log)
     except Exception as e:
         print(f"> Error procesando mensaje: {e}")
