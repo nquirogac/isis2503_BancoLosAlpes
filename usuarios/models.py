@@ -13,5 +13,6 @@ class Usuario(models.Model):
         abstract = True
 
 def __str__(self):
-    return '%s %s %s %s' (str(self.document), self.name, self.email, self.age)
+    return f"{self.document} {self.name} {self.email} {self.age}"
+
 

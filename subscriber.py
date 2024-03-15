@@ -40,7 +40,7 @@ for topic in topics:
 print('> Waiting logs. To exit press CTRL+C')
 
 
-def callback(body):
+def callback(ch, method, properties,body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
     if getCliente(payload['user_id']) != 'No hay cliente con ese documento':
         print('Creation Date ' + str(payload['creationDate']) 

@@ -12,4 +12,4 @@ class Cliente(Usuario):
     
     
 def __str__(self):
-    return '%s %s %s %s' (str(self.document), self.name, self.email, self.income, self.debt)
+    return f"{self.document} {self.name} {self.email} {self.income} {self.debt}"
