@@ -5,7 +5,7 @@ import json
 
 from random import choice, randint, uniform
 
-rabbit_host = 'host'
+rabbit_host = '10.128.0.5'
 rabbit_user = 'monitoring_user'
 rabbit_password = 'isis2503'
 exchange = 'BancoLosAlpes'

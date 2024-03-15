@@ -11,7 +11,7 @@ db = client['AWS']
 collection = db['solicitudesLogs']
 
 #Define the connection parameters to the broker message
-rabbit_host = 'host'
+rabbit_host = '10.128.0.5'
 rabbit_user = 'monitoring_user'
 rabbit_password = 'isis2503'
 exchange = 'BancoLosAlpes'
