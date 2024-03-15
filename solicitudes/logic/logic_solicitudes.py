@@ -7,10 +7,10 @@ def create_solicitud(formSolicitud):
     solicitud = formSolicitud.save()
     solicitud.save()
 
-def create_solicitud_object(creationDate, closeDate, state):
+def create_solicitud_object(creationDate, closeDate, status):
     solicitud = Solicitud()
     solicitud.creationDate = creationDate
     solicitud.closeDate = closeDate
-    solicitud.state = state
+    solicitud.status = status
     solicitud.save()
         
