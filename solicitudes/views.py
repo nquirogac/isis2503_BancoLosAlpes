@@ -3,20 +3,20 @@ from django.contrib import messages
 from .forms import solicitudForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .logic.logic_solicitudes import get_solicitudes, create_solicitud
+from .logic.logic_solicitudes import getSolicitudes, createSolicitud
 
 def solicitudesList(request):
-    listaSol = get_solicitudes()
+    listaSol = getSolicitudes()
     context = {
         'solicitudesList':listaSol
     }
     return render(request, 'solicitudes/solicitudes.html', context)
 
-def createSolicitud(request):
+def postSolicitud(request):
     if request.method == 'POST':
         form = solicitudForm(request.POST)
         if form.is_valid():
-            create_solicitud(form)
+            createSolicitud(form)
             messages.add_message(request, messages.SUCCESS, 'Solicitud created successful')
             return HttpResponseRedirect(reverse('createSolicitud'))
         else:

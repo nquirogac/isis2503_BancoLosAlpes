@@ -1,13 +1,13 @@
 from solicitudes.models import Solicitud
-def get_solicitudes():
+def getSolicitudes():
     queryset = Solicitud.objects.all().order_by('status')
     return (queryset)
 
-def create_solicitud(formSolicitud):
+def createSolicitud(formSolicitud):
     solicitud = formSolicitud.save()
     solicitud.save()
 
-def create_solicitud_object(creationDate, closeDate, status):
+def createSolicitudObject(creationDate, closeDate, status):
     solicitud = Solicitud()
     solicitud.creationDate = creationDate
     solicitud.closeDate = closeDate
