@@ -50,7 +50,6 @@ def callback(ch, method, properties,body):
             '_id': id,
             "user_id": payload['user_id'],
             "creationDate": payload['creationDate'],
-            "closeDate": payload['closeDate'],
             "status": payload['status']
         }
     collection.insert_one(log)
