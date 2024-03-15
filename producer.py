@@ -32,7 +32,7 @@ while True:
         message_body = json.dumps(payload)  # Convertir el diccionario a JSON
         channel.basic_publish(exchange=exchange,
                             routing_key=topic, body=message_body)
-        print("Topic: %r Request: %r Staus: %r by: %r at: %s" % (Topic,operation,status, userId, timestamp))
+        print("Topic: %r Request: %r Staus: %r by: %r at: %s" % (topic,operation,status, userId, timestamp))
         time.sleep(3)
 
 connection.close()
