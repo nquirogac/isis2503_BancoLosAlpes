@@ -5,9 +5,9 @@ import json
 
 from random import choice, randint, uniform
 
-rabbit_host = ''
-rabbit_user = ''
-rabbit_password = ''
+rabbit_host = 'host'
+rabbit_user = 'monitoring_user'
+rabbit_password = 'isis2503'
 exchange = 'BancoLosAlpes'
 topics = ['solicitud']
 
