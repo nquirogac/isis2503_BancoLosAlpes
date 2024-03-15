@@ -1,9 +1,14 @@
 import json
+from random import randint
 import pika
 from sys import path
 from os import environ
 import django
+from pymongo import MongoClient
 
+client = MongoClient('mongodb+srv://TomasR:20220722@prueba1.00rxmli.mongodb.net/')
+db = client['AWS']
+collection = db['solicitudesLogs']
 
 #Define the connection parameters to the broker message
 rabbit_host = ''
@@ -38,9 +43,17 @@ print('> Waiting logs. To exit press CTRL+C')
 def callback(body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
     if getCliente(payload['user_id']) != 'No hay cliente con ese documento':
-        createSolicitudObject(payload['creationDate'], payload['closeDate'], payload['status'], payload['user_id'])
-        print('Creation Date ' + str(payload['creationDate']) + ' Close Date ' + str(payload['closeDate']) 
-              + 'Status ' + str(payload['status']) + 'Docuemnto Cliente ' + str(payload['user_id']))
+        print('Creation Date ' + str(payload['creationDate']) 
+              + 'Status ' + str(payload['status']) + 'Documento Cliente ' + str(payload['user_id']))
+        id = randint(-9223372036854775807, 9223372036854775807)
+        log = {
+            '_id': id,
+            "user_id": payload['user_id'],
+            "creationDate": payload['creationDate'],
+            "closeDate": payload['closeDate'],
+            "status": payload['status']
+        }
+        collection.insert_one(log)
     else: 
         print('error, el usuario no se encuenta en el CRM')
 

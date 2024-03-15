@@ -28,7 +28,6 @@ while True:
         channel.basic_publish(exchange=exchange, routing_key=topic, body=message)
         print("Topic: %r, Status: %r, UserId: %r, CreationDate: %r" % (topic, status, user_id, creationDate))
         time.sleep(1)
-        
 connection.close()
         
         

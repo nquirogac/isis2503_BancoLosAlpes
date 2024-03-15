@@ -27,6 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -85,14 +86,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
-    'mongoDB' : {
-        'ENGINE': 'djongo',
-        'NAME': 'MongoDBASW',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb+srv://TomasR:20220722mongodbasw.vhlj1mf.mongodb.net/'
-            }  
-        }
 }
 
 
