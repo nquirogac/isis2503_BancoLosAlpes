@@ -23,11 +23,12 @@ while True:
         status = choice(['Aprobado', 'Rechazado','Pendiente'])
         user_id = randint(-9223372036854775807, 9223372036854775807)
         creationDate = datetime.now().isoformat()
-        payload = {'Topic': topic, 'Status': status, 'UserId': user_id, 'CreationDate': creationDate}
+        payload = {'user_id': user_id, 'status': status, 'creationDate': creationDate, 'topic': topic}
         message = json.dumps(payload)
         channel.basic_publish(exchange=exchange, routing_key=topic, body=message)
         print("Topic: %r, Status: %r, UserId: %r, CreationDate: %r" % (topic, status, user_id, creationDate))
         time.sleep(1)
+        
 connection.close()
         
         
