@@ -8,6 +8,9 @@ class Usuario(models.Model):
     email = models.CharField(max_length = 250)
     country = models.CharField(max_length = 50)
     city = models.CharField(max_length = 50)
+    
+    class Meta:
+        abstract = True
 
 def __str__(self):
     return '%s %s %s %s' (str(self.document), self.name, self.email, self.age)
