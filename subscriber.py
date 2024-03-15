@@ -42,20 +42,20 @@ print('> Waiting logs. To exit press CTRL+C')
 
 def callback(ch, method, properties,body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
-    if getCliente(payload['user_id']) != 'No hay cliente con ese documento':
-        print('Creation Date ' + str(payload['creationDate']) 
+    #if getCliente(payload['user_id']) != 'No hay cliente con ese documento':
+    print('Creation Date ' + str(payload['creationDate']) 
               + 'Status ' + str(payload['status']) + 'Documento Cliente ' + str(payload['user_id']))
-        id = randint(-9223372036854775807, 9223372036854775807)
-        log = {
+    id = randint(-9223372036854775807, 9223372036854775807)
+    log = {
             '_id': id,
             "user_id": payload['user_id'],
             "creationDate": payload['creationDate'],
             "closeDate": payload['closeDate'],
             "status": payload['status']
         }
-        collection.insert_one(log)
-    else: 
-        print('error, el usuario no se encuenta en el CRM')
+    collection.insert_one(log)
+    #else: 
+        #print('error, el usuario no se encuenta en el CRM')
 
 channel.basic_consume(
     queue=queue_name, on_message_callback=callback, auto_ack=True)
