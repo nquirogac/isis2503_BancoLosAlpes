@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-# Carga las variables de entorno desde el archivo .env
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,12 +76,20 @@ WSGI_APPLICATION = 'isis2503_BancoLosAlpes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
-    }
+        'NAME': 'asw',
+        'USER': 'trodri',
+        'PASSWORD': '200511020Tr$',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+    'mongoDB' : {
+        'ENGINE': 'djongo',
+        'NAME': 'MongoDBASW',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://TomasR:20220722mongodbasw.vhlj1mf.mongodb.net/'
+            }  
+        }
 }
 
 
