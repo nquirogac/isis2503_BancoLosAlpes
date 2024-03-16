@@ -41,7 +41,6 @@ def callback(ch, method, properties, body):
     createSolicitudObject(payload['creationDate'], payload['status'], payload['user_id'])
     print('Creation Date ' + str(payload['creationDate']) + 
           + 'Status ' + str(payload['status']) + 'Docuemnto Cliente ' + str(payload['user_id']))
-    Log.objects.using('logs').create(level='INFO', message=f"Creation Date {str(payload['creationDate'])} Status {str(payload['status'])} Docuemnto Cliente {str(payload['user_id'])}")  
 
 channel.basic_consume(
     queue=queue_name, on_message_callback=callback, auto_ack=True)
