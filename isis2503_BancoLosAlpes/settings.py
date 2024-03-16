@@ -85,15 +85,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
-    
-    'logs_db': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'logs',
-        'USER': 'trodri',
-        'PASSWORD': '200511020Tr$',
-        'HOST': 'localhost',
-        'PORT': '5445',
-    }
 }
 
 
