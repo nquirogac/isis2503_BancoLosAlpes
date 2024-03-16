@@ -37,7 +37,7 @@ print('> Waiting logs. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
-    print('Creation Date ' + str(payload['creationDate']) + 
+    print('Creation Date ' + str(payload['creationDate']) 
           + 'Status ' + str(payload['status']) + 'Docuemnto Cliente ' + str(payload['user_id']))
     createLogObject(level='INFO', message= str(payload), created= str(payload['creationDate']))
 channel.basic_consume(
