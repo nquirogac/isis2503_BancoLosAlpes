@@ -16,9 +16,8 @@ path.append('isis2503_BancoLosAlpes/settings.py')
 environ.setdefault('DJANGO_SETTINGS_MODULE', 'isis2503_BancoLosAlpes.settings')
 django.setup()
 
-from solicitudes.logic.logic_solicitudes import createSolicitudObject
-from clientes.services.services_clientes import getCliente
-from logs.models import Log  # replace 'logs' with your Django app name
+from logs.models import Log
+from logs.logic.logic_logs import createLog, createLogObject
 
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host=rabbit_host, credentials=pika.PlainCredentials(rabbit_user, rabbit_password)))
@@ -38,11 +37,9 @@ print('> Waiting logs. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
-    createSolicitudObject(payload['creationDate'], payload['status'], payload['user_id'])
     print('Creation Date ' + str(payload['creationDate']) + 
           + 'Status ' + str(payload['status']) + 'Docuemnto Cliente ' + str(payload['user_id']))
-    Log.objects.using('logs').create(level='INFO', message=f"Creation Date {str(payload['creationDate'])} Status {str(payload['status'])} Docuemnto Cliente {str(payload['user_id'])}")  
-
+    createLogObject(level='INFO', message= str(payload), created= str(payload['creationDate']))
 channel.basic_consume(
     queue=queue_name, on_message_callback=callback, auto_ack=True)
 

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-from .logging_config import LOGGING
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -36,10 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'solicitudes',
-    'usuarios',
-    'clientes',
-    'administradores',
     'logs'
 ]
 
@@ -80,15 +75,6 @@ WSGI_APPLICATION = 'isis2503_BancoLosAlpes.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'asw',
-        'USER': 'trodri',
-        'PASSWORD': '200511020Tr$',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
-    
-    'logs_db': {
-        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'logs',
         'USER': 'trodri',
         'PASSWORD': '200511020Tr$',
@@ -97,7 +83,6 @@ DATABASES = {
     }
 }
 
-DATABASE_ROUTERS = ['log_routers.LogRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
