@@ -9,6 +9,16 @@
             "name": "Sw",
             "database": "asw",
             "username": "trodri"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5445,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "Logs",
+            "database": "logs",
+            "username": "trodri"
         }
     ]
 }
